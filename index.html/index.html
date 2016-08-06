@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/base.css"/>
+<link rel="stylesheet" href="css/index.css" />
+<script type="text/javascript" src="js/jquery-1.7.2.js" ></script>
+<script type="text/javascript" src="min.js/index.0.0.1.js" ></script>
+<style>
+
+</style>
+
+<script>
+	window.onload = function () {
+        var oUl=document.querySelector('#ul1');
+
+        var N=11;
+        for(var i=0; i<N; i++){
+            var oLi=document.createElement('li');
+            oLi.style.background='url(img/'+(i+1)+'.jpg)';
+            oLi.style.transition='1s all ease '+(N-i)*200+'ms';
+            ;(function(i, oLi){
+                setTimeout(function(){
+                    oLi.style.transform='perspective(1200px) rotateY('+(360/N*i)+'deg) translateZ(280px)';
+                }, 0)
+            })(i, oLi);
+            oUl.appendChild(oLi);
+        }
+        var y=0;
+        var x=0;
+        var aLi=oUl.children;
+        var iSpeedX=0;
+        var iSpeedY=0;
+        var lastX=0;
+        var lastY=0;
+        var timer;
+        var bReady=false;
+
+        aLi[0].addEventListener('transitionend', function(){
+            bReady=true;
+
+            change(x, y);
+        }, false);
+        oUl.onmousedown=function(ev){
+            if(bReady==false)return;
+            clearInterval(timer);
+            var oEvent=ev || event;
+            var disX=oEvent.clientX-y;
+            var disY=oEvent.clientY-x;
+
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].style.transition='none';
+            }
+            document.onmousemove=function(ev){
+                var oEvent=ev || event;
+
+                x=oEvent.clientY-disY;
+                y=oEvent.clientX-disX;
+
+                change(x/3, y/3);
+
+                iSpeedX=oEvent.clientX-lastX;
+                iSpeedY=oEvent.clientY-lastY;
+                lastX=oEvent.clientX;
+                lastY=oEvent.clientY;
+            };
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+
+                timer=setInterval(function(){
+                    x+=iSpeedY;
+                    y+=iSpeedX;
+
+                    iSpeedX*=0.9;
+                    iSpeedY*=0.9;
+
+                    change(x/3, y/3);
+                }, 30);
+            };
+            return false;
+        };
+
+        function change(x, y){
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].style.transform='perspective(1200px) rotateX('+-x+'deg) rotateY('+((360/N*i)+y)+'deg) translateZ(280px)';
+
+                var scale=Math.abs(Math.abs(((360/N*i)+y)%360)-180)/180;
+                scale<0.3 && (scale=0.3);
+                aLi[i].style.opacity=scale;
+            }
+        }
+    };
+</script>
+
+</head>
+
+<body>
+	<div class="header">
+		<div class="nav">
+			<div class="content">
+				<a href="index.html">首页</a>
+				<a href="#part1">H5</a>
+				<a href="#part2">JS</a>
+				<a href="#part3">个人简历</a>
+				<a href="#part4">联系我</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<span class="avtar"></span>
+		<p class="p1">我是蒋永安-web前端</p>
+		<p class="p1">H5 JS 联系我</p>
+	</div>
+	<div class="title">H5</div>
+	<div class="content_h " id="part1">
+		<ul id="ul1">
+			
+		</ul>
+	</div>
+	
+    <div class="title">JS</div>
+	<div class="scroll" id="part2">
+        <div class="left_l" id="box">
+            <img class="on" src="img/img2/s_banner1.jpg" width="192" height="100">
+            <img src="img/img2/s_banner2.jpg" width="192" height="100">
+            <img src="img/img2/s_banner3.jpg" width="192" height="100">
+            <img src="img/img2/s_banner4.jpg" width="192" height="100">
+            <img src="img/img2/s_banner5.jpg" width="192" height="100">
+            
+            <div class="show aaa"><img src="img/img2/s_banner1.jpg" width="960" height="500"></div>
+            <div class="show aaa"><img src="img/img2/s_banner2.jpg" width="960" height="500"></div>
+            <div class="show aaa"><img src="img/img2/s_banner3.jpg" width="960" height="500"></div>
+            <div class="show aaa"><img src="img/img2/s_banner4.jpg" width="960" height="500"></div>
+            <div class="show aaa"><img src="img/img2/s_banner5.jpg" width="960" height="500"></div>
+        </div>
+    </div> 
+    <div class="title">个人简历</div>
+    <div class="cont_t" id="part3">
+    	
+    </div>
+    <div class="title">联系我</div>
+    <div class="text_content" id="part4">
+    	<p><span>qq:</span>84607238</p>
+    	<p><span>手机：</span>13836382174</p>
+    	<p><span>Name：</span>蒋永安</p>
+    </div>   
+     <a href="" class="btt" style="display: block;">顶部</a>   
+</body>
+</html>

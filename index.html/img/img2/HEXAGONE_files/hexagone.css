@@ -1,0 +1,90 @@
+html{
+				font-size: 20px;
+			}
+			header{
+				width: 16rem;
+				height: 3rem;
+				background: #344A61;
+				overflow: hidden;
+			}
+			header .nav_l{
+				width: 2.95rem;
+				height: 3rem;
+				float: left;
+				box-shadow: inset 0px 0px 10px #455B72;	
+			}
+			header .nav_l a img{
+				width: 0.75rem;
+				height: 0.55rem;
+				display: block;
+				padding-left: 1.1rem;
+				padding-top: 1.25rem;
+			}
+			header h2{
+				width: 10rem;
+				height: 3rem;
+				font-size: 0.65rem;
+				color: #fff;
+				float: left;
+				text-align: center;
+				line-height: 3rem;
+			}
+			header .nav_r{
+				width: 2.95rem;
+				height: 3rem;
+				float: left;
+				box-shadow: inset 0px 0px 10px #455B72;	
+			}
+			header .nav_r a img{
+				width: 0.75rem;
+				height: 0.55rem;
+				display: block;
+				padding-left: 1.1rem;
+				padding-top: 1.25rem;
+			}
+			.cont{
+				width: 14rem;
+				height: 2.1rem;
+				border-bottom: 2px solid #E5E5E5;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			.cont a{
+				font-size: 0.4rem;
+				color: #E5E5E5;
+				line-height: 2.1rem;
+			}
+            .cont_c{
+				width:14rem ;
+				height: 17.75rem;
+				border-bottom: 2px solid #E5E5E5;
+				margin: 1rem auto;
+				overflow: hidden;
+			}
+			.cont_c img{
+				width: 14rem;
+				display: block;
+				margin: 0 auto;
+			}
+			.cont_c ul {
+				width: 14rem;
+				height: 7.5rem;
+			}
+			.cont_c ul h3{
+				display: block;
+				padding-top: 1.25rem;
+				font-size: 0.55rem;
+				color: #b7b7b7;
+			}
+			.cont_c ul li a{
+				font-size: 0.5rem;
+				color: #636363;
+				margin-top: 0.5rem;
+				line-height: 1rem;
+			}
+
+
+
+
+
+
